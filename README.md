@@ -1,5 +1,5 @@
 # ryve-mobile (Android SDK App)
-This is my end-of-degree work for unviersity.
+This is my end-of-degree work for university.
 
 It's an Android mobile app  and backend created using lastest technologies: Spring, Android SDK, Java, Kotlin, ObjectBox, DataViews, Jetpack, Gradle, MVC, MVVM, MySQL, Retrofit...
 
