@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0B9E00</color>
+    <color name="colorPrimaryDark">#065300</color>
+    <color name="colorAccent">#8DFF85</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#7A7A7A</color>
+    <color name="black">#000000</color>
+    <color name="gray">#7A7878</color>
+    <color name="red">#BA0F03</color>
+
+    <color name="good_route">#2FFF00</color>
+    <color name="medium_route">#FF8400</color>
+    <color name="bad_route">#BA0F03</color>
+    <color name="dead_route">#000000</color>
+    <color name="blue">#557AFF</color>
+</resources>

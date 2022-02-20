@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.principal.TravelFragment">
+
+    <data>
+
+        <import type="com.martinlacorrona.ryve.mobile.view.ActivityUtil" />
+        <variable
+            name="vm"
+            type="com.martinlacorrona.ryve.mobile.viewmodel.principal.TravelViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="20dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_field_edit_text_origin"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/origin"
+
+                app:startIconDrawable="@drawable/ic_baseline_trip_origin_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_field_edit_text_origin_text"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:text="@={vm.origin}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_field_edit_text_destination"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/destination"
+
+                app:startIconDrawable="@drawable/ic_baseline_emoji_transportation_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_field_edit_text_destination_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="none"
+
+                    android:text="@={vm.destination}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_field_edit_text_max_distance"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/max_distance_of_vehicle"
+
+                app:startIconDrawable="@drawable/ic_baseline_alt_route_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_field_edit_text_max_distance_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:text="@={vm.maxDistance}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_field_edit_text_max_percentage_loaded"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/percentage_loaded"
+
+                app:startIconDrawable="@drawable/ic_baseline_car_repair_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_field_edit_text_percentage_loaded_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:text="@={vm.percentageLoaded}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_field_edit_text_price_max"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/price_max_station_service_in_trip"
+
+                app:startIconDrawable="@drawable/ic_baseline_arrow_upward_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_field_edit_text_price_max_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:text="@={vm.maxPrice}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/combo_field_avoid_tolls"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:hint="@string/avoid_tolls"
+                app:startIconDrawable="@drawable/ic_baseline_arrow_forward_ios_24">
+
+            <AutoCompleteTextView
+                android:id="@+id/combo_field_avoid_tolls_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button_travel"
+
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/travel"
+            app:icon="@drawable/ic_baseline_card_travel_24_black"
+
+            android:enabled="@{ActivityUtil.areNotEmpty(vm.origin, vm.destination, vm.maxDistance, vm.percentageLoaded, vm.maxPrice)}"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
